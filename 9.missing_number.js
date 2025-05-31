@@ -2,18 +2,18 @@
 
 // Methoad- 1. Sum Formula Method → (n * (n + 1)) / 2
 
-// function findMissingNumber(numbers) {
-//     const totalCount = numbers.length + 1; // Total numbers including the missing one
+function findMissingNumber(numbers) {
+    const totalCount = numbers.length + 1; // Total numbers including the missing one
 
-//     /* Sum of numbers from 1 to totalCount using formula */
-//     const expectedSum = (totalCount * (totalCount + 1)) / 2;
+    /* Sum of numbers from 1 to totalCount using formula */
+    const expectedSum = (totalCount * (totalCount + 1)) / 2;
 
-//     const actualSum = numbers.reduce((sum, current) => sum + current, 0);
+    const actualSum = numbers.reduce((sum, current) => sum + current, 0);
 
-//     return expectedSum - actualSum;
-// }
+    return expectedSum - actualSum;
+}
 
-// console.log(findMissingNumber([1, 2, 4, 5]));  // Output: 3
+console.log(findMissingNumber([1, 2, 4, 5]));  // Output: 3
 
 /*
   1. expectedSum: --→ calculates the total sum from 1 to n using the formula.
@@ -33,18 +33,18 @@
 
 /** Method 2: Using "Set" to Find Missing Number **/
 
-function findMissingNumber(arr) {
-    const totalCount = arr.length + 1;
-    const numberSet = new Set(arr);
+// function findMissingNumber(arr) {
+//     const totalCount = arr.length + 1;
+//     const numberSet = new Set(arr);
 
-    for (let i = 1; i <= totalCount; i++) {
-        if (!numberSet.has(i)) {
-            return i;
-        }
-    }
-}
+//     for (let i = 1; i <= totalCount; i++) {
+//         if (!numberSet.has(i)) {
+//             return i;
+//         }
+//     }
+// }
 
-console.log(findMissingNumber([1, 2, 5]))
+// console.log(findMissingNumber([1, 2, 5]))
 
 
 /* 
@@ -57,6 +57,25 @@ console.log(findMissingNumber([1, 2, 5]))
 
 
 
+// ******* If 2 or more numbers are missing, use these approaches:
+
+function findMultipleMissingNumbers(numbers, n) {
+    const numberSet = new Set(numbers);
+    const missing = [];
+
+    for (let i = 1; i <= n; i++) {
+        if (!numberSet.has(i)) {
+            missing.push(i);
+        }
+    }
+
+    return missing;
+}
+
+console.log(findMultipleMissingNumbers([1, 3, 5, 6], 6));  // Output: [2, 4]
+
+// .has(i) checks if the number i exists in the set.
+// The loop runs while i <= n → so i will go from 1 to 6
 
 
 

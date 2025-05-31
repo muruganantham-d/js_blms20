@@ -84,3 +84,38 @@ console.log(removeDuplicate3(numArray3));
    3. Checking Duplicates ---> unique.includes(item) checks if the current element (item) is
       already in the unique array. If it's not, the element is added; otherwise, it's skipped.
 */
+
+
+
+
+// EX-3. without default methoads::
+function removeDuplicates(arr) {
+    const uniqueArr = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let isDuplicate = false;
+
+        // Check if arr[i] already exists in uniqueArr
+        for (let j = 0; j < uniqueArr.length; j++) {
+            if (arr[i] === uniqueArr[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+
+        // If not duplicate, push to uniqueArr
+        if (!isDuplicate) {
+            uniqueArr.push(arr[i]);
+        }
+    }
+
+    return uniqueArr;
+}
+
+// Test
+const numbers = [1, 2, 2, 3, 4, 3, 5];
+console.log(removeDuplicates(numbers)); // Output: [1, 2, 3, 4, 5]
+
+// break;:: In JavaScript, the break; statement is used to exit a loop early — before it finishes running all its iterations.
+// arr[i] ---> The actual value in the array at index i
+// i  ----> The index number itself

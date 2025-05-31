@@ -1,22 +1,23 @@
 // Method 1: Function to flatten a deeply nested array into a single-level array
 
-// function flattenArray(arr) {
-//     let result = [];
+function flattenArray(arr) {
+    let result = [];
 
-//     for (const item of arr) {
-//         if (Array.isArray(item)) {
-//             result = result.concat(flattenArray(item));
-//         } else {
-//             result.push(item);
-//         }
-//     }
+    for (const item of arr) {
+      console.log(item,"items")
+        if (Array.isArray(item)) {
+            result = result.concat(flattenArray(item));
+        } else {
+            result.push(item);
+        }
+    }
 
-//     return result;
-// }
+    return result;
+}
 
-// const nestedArray = [1, [2, [3, 4], 5], 6, [7, [8, 9]], 10];
+const nestedArray = [1, [2, [3, 4], 5], 6, [7, [8, 9]], 10];
 
-// console.log(flattenArray(nestedArray));
+console.log(flattenArray(nestedArray));
 
 /* Key Notes:
   1. for...of --→ Loops through each item in the array.
@@ -26,6 +27,9 @@
   3. concat(flattenArray(item)) --→ Recursively flattens nested arrays.
 
   4. push(item) --→ Adds non-array elements to the final result.
+
+  5. why use const ----> It's a new constant binding every time,
+     not the same variable being reassigned.
 */
 
 
@@ -64,28 +68,28 @@
 
 // Method 3: Iterative Stack-Based Flattening (Large Data Example)
 
-function flattenIterative(input) {
-    const stack = [...input];   // Step 1: Initialize stack with array
-    const result = [];
+// function flattenIterative(input) {
+//     const stack = [...input];   // Step 1: Initialize stack with array
+//     const result = [];
 
-    while (stack.length) {      // Step 3: Keep processing until stack is empty
-        const next = stack.pop(); // Step 4: Take last item from the stack
+//     while (stack.length) {      // Step 3: Keep processing until stack is empty
+//         const next = stack.pop(); // Step 4: Take last item from the stack
 
-        if (Array.isArray(next)) {
-            stack.push(...next);
-            // Example: If next = [2, [3, 4], 5], then
-            // stack.push(...next) → stack becomes [..., 2, [3, 4], 5]
-        } else {
-            result.push(next);  // Step 6: If it's a number, add to result
-        }
-    }
+//         if (Array.isArray(next)) {
+//             stack.push(...next);
+//             // Example: If next = [2, [3, 4], 5], then
+//             // stack.push(...next) → stack becomes [..., 2, [3, 4], 5]
+//         } else {
+//             result.push(next);  // Step 6: If it's a number, add to result
+//         }
+//     }
 
-    return result.reverse();
-}
+//     return result.reverse();
+// }
 
-const nested = [1, [2, [3, 4], 5], 6];
+// const nested = [1, [2, [3, 4], 5], 6];
 
-console.log(flattenIterative(nested));
+// console.log(flattenIterative(nested));
 
 /* Key Notes:::
    1. stack.pop() → Removes and returns the last element of the stack (LIFO).

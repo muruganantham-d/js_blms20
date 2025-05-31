@@ -27,18 +27,32 @@ console.log(findLongestWord("Hi, my name is Murugan"));
 
 
 
+//EX:2, Both longest and Sortest;;
 
+function findLongestAndShortestWord(sentence) {
+    const words = sentence.split(' ').map(word => word.replace(/[^\w]/g, '')); // Remove punctuation
 
+    let longestWord = '';
+    let shortestWord = words[0] || '';
 
+    for (const word of words) {
+        if (word.length > longestWord.length) {
+            longestWord = word;
+        }
+        if (word.length < shortestWord.length && word.length > 0) {
+            shortestWord = word;
+        }
+    }
 
+    return {
+        longestWord,
+        shortestWord
+    };
+}
 
-
-
-
-
-
-
-
+const result = findLongestAndShortestWord("Hi, my name is Murugan");
+console.log("Longest Word:", result.longestWord);
+console.log("Shortest Word:", result.shortestWord);
 
 
 

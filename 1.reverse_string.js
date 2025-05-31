@@ -12,6 +12,7 @@ function reverseString(str) {
 const reversedString = reverseString('Murugan');
 console.log(reversedString);
 
+
 // Key Notes:
 // 1. For Loop: Iterates through the string from the last character to the first.
 // 2. Concatenation: The `+=` operator Adds each character to the reversed string, building it step by step.

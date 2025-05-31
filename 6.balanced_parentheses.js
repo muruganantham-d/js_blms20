@@ -16,7 +16,7 @@ function isBalanced(str) {
     return stack.length === 0;
 }
 
-console.log(isBalanced("(()"));
+console.log(isBalanced("(()")); 
 
 /*Key Notes:::
    1. push() ---→ adds an opening bracket to the stack.

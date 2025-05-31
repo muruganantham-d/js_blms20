@@ -23,6 +23,7 @@ console.log(charecterCounts);
 
 
 
+
 // for (let char of str) {
 //     counts[char] = (counts[char] || 0) + 1;
 // }

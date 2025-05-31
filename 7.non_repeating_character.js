@@ -18,7 +18,7 @@ function firstNonRepeatingCharacter(str) {
             return char;
         }
     }
-    return null;
+    return null; 
 }
 
 console.log(firstNonRepeatingCharacter('rover'));  //First non-repeating character -> o
